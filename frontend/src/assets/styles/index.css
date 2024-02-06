@@ -1,0 +1,60 @@
+main {
+  min-height: 80vh;
+}
+
+h3 {
+  padding: 1rem 0;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+}
+
+.rating-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding-left: 0.5rem;
+}
+
+.product-title {
+  height: 2.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+/* carousel */
+
+.carousel-caption {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Footer Css */
+.copyright {
+  text-align: center;
+  background: rgb(171, 210, 220);
+}
+
+.copyright hr {
+  color: #967a50;
+}
+.copyright p {
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+}
+/* Footer Css */
