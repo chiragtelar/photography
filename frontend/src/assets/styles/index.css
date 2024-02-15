@@ -1,3 +1,8 @@
+
+a {
+  text-decoration: none;
+}
+
 main {
   min-height: 80vh;
 }
@@ -47,7 +52,14 @@ h2 {
 /* Footer Css */
 .copyright {
   text-align: center;
-  background: rgb(171, 210, 220);
+  background: #212529;
+  color: white;
+}
+
+.footer-container {
+  background: #212529;
+  color: white;
+  padding: 5px 5px 5px 5px;
 }
 
 .copyright hr {
