@@ -3,6 +3,11 @@ import express from "express";
 import connectDB from "./config/db.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+
+import sliderRoutes from './routes/sliderRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+
 dotenv.config();
 
 const port = process.env.PORT || 5000;
@@ -18,9 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 //Decalare url
-
-
-
+app.use("/api/slider", sliderRoutes);
+app.use("/api/users", userRoutes);
 
 
 // Decalare production and development conditions
@@ -37,6 +41,7 @@ if (process.env.NODE_ENV === "production") {
     res.send("API is running....");
   });
 }
-
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
