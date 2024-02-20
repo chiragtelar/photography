@@ -1,5 +1,5 @@
 import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Container } from "react-bootstrap";
 import { FaTimes, FaTrash, FaEdit, FaCheck } from "react-icons/fa";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader"; 
@@ -25,7 +25,7 @@ function UserListScreen() {
 
 
     return (
-      <>
+      <Container>
         <h1>Users</h1>
 
         { loadingDelete && <Loader/> }
@@ -71,7 +71,7 @@ function UserListScreen() {
               </tbody>
           </Table>
         )}
-      </>
+      </Container>
     );
 }
 

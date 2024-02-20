@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Container } from "react-bootstrap";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import FormContainer from "../../components/FormContainer";
@@ -49,7 +49,7 @@ function UserEditScreen() {
   };
 
   return (
-    <>
+    <Container>
       <Link to="/admin/userlist" className="btn btn-light my-3">
         Go Back
       </Link>
@@ -97,7 +97,7 @@ function UserEditScreen() {
           </Form>
         )}
       </FormContainer>
-    </>
+    </Container>
   );
 }
 
