@@ -1,4 +1,4 @@
-import { SLIDER_URL } from "../constants";
+import { SLIDER_URL, UPLOAD_URL } from "../constants";
 import { apiSlice } from "./apiSlice";
 
 export const sliderApiSlice = apiSlice.injectEndpoints({
@@ -31,6 +31,13 @@ export const sliderApiSlice = apiSlice.injectEndpoints({
             }),
             invalidatesTags : ['Slider']
          }),
+         uploadSliderImage : builder.mutation({
+            query : (data) => ({
+                url : `${UPLOAD_URL}`,
+                method : "POST",
+                body : data
+            })
+         }),
          deleteSlider : builder.mutation({
             query : (id) => ({
                 url : `${SLIDER_URL}/${id}`,
@@ -45,5 +52,6 @@ export const {
     useGetSliderDetailsQuery,
     useCreateSliderMutation,
     useUpdateSliderMutation,
+    useUploadSliderImageMutation,
     useDeleteSliderMutation
 } = sliderApiSlice;

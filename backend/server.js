@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 
 import sliderRoutes from './routes/sliderRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.use(cookieParser());
 //Decalare url
 app.use("/api/slider", sliderRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/upload", uploadRoutes)
 
 
 // Decalare production and development conditions
