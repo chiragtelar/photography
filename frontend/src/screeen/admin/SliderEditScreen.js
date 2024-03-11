@@ -57,11 +57,16 @@ function SliderEditScreen() {
   };
 
   // when file input on select image then below function is excute.
-  const uploadFileHandler = (e) => {
+  const uploadFileHandler = async (e) => {
     const formData = new FormData();
     formData.append("image", e.target.files[0]);
     try {
-    } catch (error) {}
+        const res = await uploadSliderImage(formData).unwrap();
+        toast.success(res.message);
+        setImage(res.image);
+    } catch (error) {
+        toast.error(error?.data?.message || error.error);
+    }
   };
 
   // load data and set in our existing value in input.
@@ -81,7 +86,7 @@ function SliderEditScreen() {
       <FormContainer>
         <h1>Edit Slider</h1>
         {loadingUpdate && <Loader />}
-
+        {loadingUpload && <Loader />}
         {isLoading ? (
           <Loader />
         ) : error ? (

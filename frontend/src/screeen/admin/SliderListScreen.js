@@ -80,7 +80,7 @@ function SliderListScreen() {
                   <td>{sld._id}</td>
                   <td>{sld.name}</td>
                   <td>{sld.description}</td>
-                  <td>{sld.image}</td>
+                  <td><img src={`../${sld.image}`} alt="" height='75px'/></td>
                   <td>
                     <LinkContainer to={`/admin/slider/${sld._id}/edit`}>
                         <Button variant="success" className="btn-sm mx-2">

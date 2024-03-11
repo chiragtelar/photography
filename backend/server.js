@@ -28,6 +28,8 @@ app.use("/api/slider", sliderRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/upload", uploadRoutes)
 
+const __dirname = path.resolve(); // set __dirname to current directory
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // Decalare production and development conditions
 if (process.env.NODE_ENV === "production") {
