@@ -1,76 +1,80 @@
-import React, { useState } from "react";
-import data from "../data/images.json";
-import { Container } from "react-bootstrap";
-import Modal from "../components/Modal";
+import React, { useState } from "react"; 
+
+const image1 =
+  "https://images.unsplash.com/photo-1497752531616-c3afd9760a11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80";
+const image2 =
+  "https://images.unsplash.com/photo-1470093851219-69951fcbb533?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80";
+const image3 =
+  "https://images.unsplash.com/photo-1447684808650-354ae64db5b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2094&q=80";
+const image4 =
+  "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80";
+const image5 =
+  "https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2301&q=80";
+const image6 =
+  "https://images.unsplash.com/photo-1500694216671-a4e54fc4b513?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2092&q=80";
+
+//IMAGE ARRAY
+const images = [image1, image2, image3, image4, image5, image6];
 
 function Portfolio() {
-  const [clickedImg, setClickedImg] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(null);
+  const [imageToShow, setImageToShow] = useState("");
+  const [lightboxDisplay, setLightBoxDisplay] = useState(false);
 
-  const handleClick = (item, index) => {
-    setCurrentIndex(index);
-    setClickedImg(item.link);
+  //looping through our images array to create img elements
+  const imageCards = images.map((image) => (
+    <img className="image-card mb-2 me-2" onClick={() => showImage(image)} src={image}  alt=""/>
+  ));
+
+  //function to show a specific image in the lightbox, amd make lightbox visible
+  const showImage = (image) => {
+    setImageToShow(image);
+    setLightBoxDisplay(true);
   };
 
-  const handelRotationRight = () => {
-    const totalLength = data.data.length;
-    if (currentIndex + 1 >= totalLength) {
-      setCurrentIndex(0);
-      const newUrl = data.data[0].link;
-      setClickedImg(newUrl);
-      return;
-    }
-    const newIndex = currentIndex + 1;
-    const newUrl = data.data.filter((item) => {
-      return data.data.indexOf(item) === newIndex;
-    });
-    const newItem = newUrl[0].link;
-    setClickedImg(newItem);
-    setCurrentIndex(newIndex);
+  //hide lightbox
+  const hideLightBox = () => {
+    setLightBoxDisplay(false);
   };
 
-  const handelRotationLeft = () => {
-    const totalLength = data.data.length;
-    if (currentIndex === 0) {
-      setCurrentIndex(totalLength - 1);
-      const newUrl = data.data[totalLength - 1].link;
-      setClickedImg(newUrl);
-      return;
+  //show next image in lightbox
+  const showNext = (e) => {
+    e.stopPropagation();
+    let currentIndex = images.indexOf(imageToShow);
+    if (currentIndex >= images.length - 1) {
+      setLightBoxDisplay(false);
+    } else {
+      let nextImage = images[currentIndex + 1];
+      setImageToShow(nextImage);
     }
-    const newIndex = currentIndex - 1;
-    const newUrl = data.data.filter((item) => {
-      return data.data.indexOf(item) === newIndex;
-    });
-    const newItem = newUrl[0].link;
-    setClickedImg(newItem);
-    setCurrentIndex(newIndex);
+  };
+
+  //show previous image in lightbox
+  const showPrev = (e) => {
+    e.stopPropagation();
+    let currentIndex = images.indexOf(imageToShow);
+    if (currentIndex <= 0) {
+      setLightBoxDisplay(false);
+    } else {
+      let nextImage = images[currentIndex - 1];
+      setImageToShow(nextImage);
+    }
   };
 
   return (
-    <Container>
-      <div className="wrapper">
-        {data.data.map((item, index) => (
-          <div key={index} className="wrapper-images">
-            <img
-              src={item.link}
-              alt={item.text}
-              onClick={() => handleClick(item, index)}
-            />
-            <h2>{item.text}</h2>
-          </div>
-        ))}
-        <div>
-          {clickedImg && (
-            <Modal
-              clickedImg={clickedImg}
-              handelRotationRight={handelRotationRight}
-              setClickedImg={setClickedImg}
-              handelRotationLeft={handelRotationLeft}
-            />
-          )}
+    <div className="my-5 text-center">
+      <h1>Portfolio</h1>
+      <div>{imageCards}</div>
+
+      {lightboxDisplay ? (
+        <div id="lightbox" onClick={hideLightBox}>
+          <button onClick={showPrev}>⭠</button>
+          <img id="lightbox-img" src={imageToShow} alt="" />
+          <button onClick={showNext}>⭢</button>
         </div>
-      </div>
-    </Container>
+      ) : (
+        ""
+      )}
+    </div>
   );
 }
 
