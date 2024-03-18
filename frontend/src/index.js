@@ -28,6 +28,8 @@ import SliderEditScreen from "./screeen/admin/SliderEditScreen";
 import Portfolio from "./screeen/Portfolio";
 import ContactUs from "./screeen/ContactUs";
 import ConfigurationScreen from "./screeen/admin/ConfigurationScreen";
+import PortfolioList from "./screeen/admin/PortfolioList";
+import PortfolioEditScreen from "./screeen/admin/PortfolioEditScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -50,6 +52,8 @@ const router = createBrowserRouter(
         <Route path="/admin/userlist" element={<UserListScreen />} />
         <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
         <Route path="/admin/configuration" element={<ConfigurationScreen/>} />
+        <Route path="/admin/portfoliolist" element={<PortfolioList/>} />
+        <Route path="/admin/portfolio/:id/edit" element={<PortfolioEditScreen/>} />
       </Route>
     </Route>
   )

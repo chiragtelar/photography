@@ -2,4 +2,5 @@
 export const BASE_URL = '';
 export const SLIDER_URL = '/api/slider';
 export const USERS_URL = '/api/users';   
+export const PORTFOLIO_URL = '/api/portfolio'
 export const UPLOAD_URL = '/api/upload';

@@ -17,4 +17,5 @@ router
   .get(checkObjectId, getSliderById)
   .put(protect, admin, checkObjectId, updateSlider)
   .delete(protect, admin, checkObjectId, deleteSlider);
+  
 export default router;

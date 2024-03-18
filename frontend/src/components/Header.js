@@ -79,6 +79,9 @@ function Header() {
                     <LinkContainer to='/admin/sliderlist'>
                         <NavDropdown.Item>Slider</NavDropdown.Item>
                     </LinkContainer>
+                    <LinkContainer to='/admin/portfoliolist'>
+                        <NavDropdown.Item>Portfolio</NavDropdown.Item>
+                    </LinkContainer>
                     <LinkContainer to='/admin/configuration'>
                         <NavDropdown.Item>Configuration</NavDropdown.Item>
                     </LinkContainer>

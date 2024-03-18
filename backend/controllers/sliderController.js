@@ -23,7 +23,7 @@ const getSliderById = asyncHandler(async (req, res) => {
         throw new Error('Resource not found!');
     }
 
-    res.status(404).json({ message : "Product not found!"});
+    res.status(404).json({ message : "Slider not found!"});
 })
 
 // @des Create a slider

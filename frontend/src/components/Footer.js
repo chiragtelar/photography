@@ -37,9 +37,9 @@ function Footer() {
             </p>
             <p>
               Address:{" "}
-              <address>
+              <>
                 204 Anand Nagar, Wadgoun Sheri <br></br>Pune Maharastra
-              </address>
+              </>
             </p>
           </Col>
 

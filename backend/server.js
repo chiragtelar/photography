@@ -7,6 +7,8 @@ import cookieParser from "cookie-parser";
 import sliderRoutes from './routes/sliderRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import portfolioRoutes from './routes/portfolioRoutes.js';
+
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 dotenv.config();
@@ -26,7 +28,8 @@ app.use(cookieParser());
 //Decalare url
 app.use("/api/slider", sliderRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/upload", uploadRoutes)
+app.use("/api/portfolio", portfolioRoutes);
+app.use("/api/upload", uploadRoutes);
 
 const __dirname = path.resolve(); // set __dirname to current directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
