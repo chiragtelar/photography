@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import sliderRoutes from './routes/sliderRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import configurationRoutes from './routes/configurationRoutes.js';
 import portfolioRoutes from './routes/portfolioRoutes.js';
 
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
@@ -29,6 +30,7 @@ app.use(cookieParser());
 app.use("/api/slider", sliderRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/portfolio", portfolioRoutes);
+app.use("/api/configuration", configurationRoutes);
 app.use("/api/upload", uploadRoutes);
 
 const __dirname = path.resolve(); // set __dirname to current directory

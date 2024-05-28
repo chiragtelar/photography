@@ -78,6 +78,7 @@ function PortfolioEditScreen() {
     }
   }, [portfolio]);
 
+  console.log(portfolio);
   return (
     <Container>
       <Link to="/admin/portfoliolist" className="btn btn-light my-3">
