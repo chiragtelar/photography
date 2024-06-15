@@ -46,7 +46,6 @@ const RegisterScreen = () => {
         toast.error(error?.data?.message || error.error);
       }
     }
-    
   };
 
   return (
